@@ -1,30 +1,30 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
-void solveQuadraticEquation(double a, double b, double c) {
-    double discriminant, root1, root2, realPart, imaginaryPart;
-    discriminant = b * b - 4 * a * c;
+int main(){
+    int a,b,c;
+    printf("entrer la valeur de A : ");
+    scanf("%d",&a);
+    printf("\nentrer la valeur de b : ");
+    scanf("%d",&b);
+    printf("\nentrer la valeur de C : ");
+    scanf("%d",&c);
 
-    if (discriminant > 0) {
-        root1 = (-b + sqrt(discriminant)) / (2 * a);
-        root2 = (-b - sqrt(discriminant)) / (2 * a);
-        printf("Les solutions sont : %.2lf et %.2lf\n", root1, root2);
-    } else if (discriminant == 0) {
-        root1 = -b / (2 * a);
-        printf("La solution double est : %.2lf\n", root1);
-    } else {
-        realPart = -b / (2 * a);
-        imaginaryPart = sqrt(-discriminant) / (2 * a);
-        printf("Les solutions complexes sont : %.2lf + %.2lfi et %.2lf - %.2lfi\n", realPart, imaginaryPart, realPart, imaginaryPart);
+    double delta =pow(b,2)-4*a*c;
+
+    if (delta > 0){
+       double x1 = (-b+sqrt(delta)) / (2*a);
+        double x1a = -b-sqrt(delta)/2*a;
+   printf("il y a deux solutions le premier est : %lf le deuxieme est : %lf ",x1,x1a);
+
+    } 
+    else if(delta == 0){
+        float x2= -b/2*a;
+        printf("la valeur de x est : %f",x2);
+    }else{
+        printf("pas de solution , la solution continue imaginnere numbers");
+        
     }
-}
-
-int main() {
-    double a, b, c;
-    printf("Entrez les coefficients a, b et c : ");
-    scanf("%lf %lf %lf", &a, &b, &c);
-
-    solveQuadraticEquation(a, b, c);
-
     return 0;
-}
+    }
